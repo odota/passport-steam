@@ -23,7 +23,8 @@ Additionally, options can be supplied to specify a return URL and realm.
 passport.use(new SteamStrategy({
     returnURL: 'http://localhost:3000/auth/steam/return',
     realm: 'http://localhost:3000/',
-    apiKey: 'your steam API key'
+    apiKey: 'your steam API key',
+    profile: true // set to false to skip fetching data from the Steam Web API, removing need for API key
   },
   function(identifier, profile, done) {
     User.findByOpenID({ openId: identifier }, function (err, user) {
